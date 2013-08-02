@@ -42,5 +42,11 @@ describe Message do
         expect { message.deliver! receiving: recipient }.to raise_error ArgumentError
       end
     end
+
+    context 'when the body field is blank' do
+      it 'should raise an error' do
+        expect { message.body == nil! }.to raise_error StandardError
+      end
+    end
   end
 end
